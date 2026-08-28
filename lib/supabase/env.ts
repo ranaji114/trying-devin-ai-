@@ -10,7 +10,7 @@ export function isSupabaseConfigured(): boolean {
 export function supabaseUrl(): string {
   const value = process.env.NEXT_PUBLIC_SUPABASE_URL;
   if (!value) throw new Error(MISSING_ENV_MESSAGE);
-  return value;
+  return new URL(value).origin;
 }
 
 export function supabaseAnonKey(): string {

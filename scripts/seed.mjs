@@ -15,7 +15,7 @@ if (!url || !serviceKey) {
   process.exit(1);
 }
 
-const supabase = createClient(url, serviceKey, {
+const supabase = createClient(new URL(url).origin, serviceKey, {
   auth: { autoRefreshToken: false, persistSession: false },
 });
 
